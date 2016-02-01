@@ -37,18 +37,17 @@ import java.util.List;
  */
 public class IconBuilderFX extends IconBuilder<IconBuilderFX, Color, String> {
 
-  private static List<String> fonts = new ArrayList<String>();
+  private static List<String> loadedFonts = new ArrayList<>();
 
-  protected static synchronized void loadFont(IconCode icon) {
-    if (fonts.contains(icon.getFontFamily()) == false) {
-      Font.loadFont(IconBuilderFX.class.getResourceAsStream(icon.getFontPath()),
-        0);
-      fonts.add(icon.getFontFamily());
+  protected static synchronized void loadFontFor(IconCode icon) {
+    if (IconBuilderFX.loadedFonts.contains(icon.getFontFamily()) == false) {
+      Font.loadFont(icon.getFontInputStream(), 0);
+      IconBuilderFX.loadedFonts.add(icon.getFontFamily());
     }
   }
 
   public static IconBuilderFX newIcon(IconCode icon) {
-    loadFont(icon);
+    IconBuilderFX.loadFontFor(icon);
     return new IconBuilderFX(icon);
   }
 
