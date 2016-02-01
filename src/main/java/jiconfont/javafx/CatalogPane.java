@@ -38,7 +38,7 @@ import java.util.Map;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class CatalogPaneFX extends BorderPane {
+public class CatalogPane extends BorderPane {
 
   private Label iconUnderMouse;
   private HBox configPane;
@@ -49,7 +49,7 @@ public class CatalogPaneFX extends BorderPane {
   private CheckBox checkBox;
   private Map<String, IconCollection> icons = new HashMap<>();
 
-  public CatalogPaneFX() {
+  public CatalogPane() {
     setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
     BorderPane.setMargin(getConfigPane(), new Insets(5, 5, 5, 5));
     BorderPane.setMargin(getIconUnderMouse(), new Insets(0, 5, 5, 5));
@@ -191,7 +191,6 @@ public class CatalogPaneFX extends BorderPane {
           }
         });
         pane.getChildren().add(label);
-        // pane.getChildren().add(new ImageView(iconBuilderFX.buildImage()));
       }
 
       vBox.getChildren().addAll(pane);

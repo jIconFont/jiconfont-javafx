@@ -1,13 +1,9 @@
 package jiconfont.javafx;
 
-import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
-import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import jiconfont.IconBuilder;
 import jiconfont.IconCode;
 
@@ -53,7 +49,6 @@ public class IconBuilderFX extends IconBuilder<IconBuilderFX, Color, String> {
 
   protected IconBuilderFX(IconCode icon) {
     super(icon);
-
   }
 
   protected String buildStyle(boolean isLabeled) {
@@ -93,26 +88,16 @@ public class IconBuilderFX extends IconBuilder<IconBuilderFX, Color, String> {
     return this;
   }
 
-  public Image buildImage() {
-    Text text = new Text(Character.toString(getIcon().getUnicode()));
-    text.setStyle(buildStyle(false));
-    Group group = new Group(text);
-    text.autosize();
-    group.autosize();
-
-    WritableImage image = group.snapshot(null, null);
-    return image;
-  }
-
   public final Label buildLabel() {
     Label label = new Label();
     apply(label);
     return label;
   }
 
-  public final void setGraphic(Labeled labeled) {
+  public final IconBuilderFX setGraphic(Labeled labeled) {
     Label graphic = buildLabel();
     labeled.setGraphic(graphic);
+      return this;
   }
 
   private int convert(double value) {
