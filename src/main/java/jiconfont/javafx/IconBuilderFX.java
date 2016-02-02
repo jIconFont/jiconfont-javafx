@@ -33,89 +33,88 @@ import java.util.List;
  */
 public class IconBuilderFX extends IconBuilder<IconBuilderFX, Color, String> {
 
-  private static List<String> loadedFonts = new ArrayList<>();
+    private static List<String> loadedFonts = new ArrayList<>();
 
-  protected static synchronized void loadFontFor(IconCode icon) {
-    if (IconBuilderFX.loadedFonts.contains(icon.getFontFamily()) == false) {
-      Font.loadFont(icon.getFontInputStream(), 0);
-      IconBuilderFX.loadedFonts.add(icon.getFontFamily());
-    }
-  }
-
-  public static IconBuilderFX newIcon(IconCode icon) {
-    IconBuilderFX.loadFontFor(icon);
-    return new IconBuilderFX(icon);
-  }
-
-  protected IconBuilderFX(IconCode icon) {
-    super(icon);
-  }
-
-  protected String buildStyle(boolean isLabeled) {
-    StringBuilder sb = new StringBuilder();
-    sb.append("-fx-font-family: '");
-    sb.append(getIcon().getFontFamily());
-    sb.append("';");
-
-    if (getSize() != null) {
-      sb.append("-fx-font-size: ");
-      sb.append(getSize());
-      sb.append(";");
+    protected static synchronized void loadFontFor(IconCode icon) {
+        if (IconBuilderFX.loadedFonts.contains(icon.getFontFamily()) == false) {
+            Font.loadFont(icon.getFontInputStream(), 0);
+            IconBuilderFX.loadedFonts.add(icon.getFontFamily());
+        }
     }
 
-    if (getColor() != null) {
-      if (isLabeled) {
-        sb.append("-fx-text-fill: ");
-        sb.append(toRGBA(getColor()));
-        sb.append(";");
-      }
-      else {
-        sb.append("-fx-fill: ");
-        sb.append(toRGBA(getColor()));
-        sb.append(";");
-
-        sb.append("-fx-stroke: ");
-        sb.append(toRGBA(getColor()));
-        sb.append(";");
-      }
+    public static IconBuilderFX newIcon(IconCode icon) {
+        IconBuilderFX.loadFontFor(icon);
+        return new IconBuilderFX(icon);
     }
-    return sb.toString();
-  }
 
-  public final IconBuilderFX apply(Labeled labeled) {
-    labeled.setText(Character.toString(getIcon().getUnicode()));
-    labeled.setStyle(buildStyle(true));
-    return this;
-  }
+    protected IconBuilderFX(IconCode icon) {
+        super(icon);
+    }
 
-  public final Label buildLabel() {
-    Label label = new Label();
-    apply(label);
-    return label;
-  }
+    protected String buildStyle(boolean isLabeled) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("-fx-font-family: '");
+        sb.append(getIcon().getFontFamily());
+        sb.append("';");
 
-  public final IconBuilderFX setGraphic(Labeled labeled) {
-    Label graphic = buildLabel();
-    labeled.setGraphic(graphic);
-      return this;
-  }
+        if (getSize() != null) {
+            sb.append("-fx-font-size: ");
+            sb.append(getSize());
+            sb.append(";");
+        }
 
-  private int convert(double value) {
-    return (int) (value * 255);
-  }
+        if (getColor() != null) {
+            if (isLabeled) {
+                sb.append("-fx-text-fill: ");
+                sb.append(toRGBA(getColor()));
+                sb.append(";");
+            } else {
+                sb.append("-fx-fill: ");
+                sb.append(toRGBA(getColor()));
+                sb.append(";");
 
-  protected String toRGBA(Color color) {
-    return "rgba(" + convert(color.getRed()) + "," + convert(color.getGreen())
-      + "," + convert(color.getBlue()) + "," + (int) color.getOpacity() + ")";
-  }
+                sb.append("-fx-stroke: ");
+                sb.append(toRGBA(getColor()));
+                sb.append(";");
+            }
+        }
+        return sb.toString();
+    }
 
-  public final IconBuilderFX setSize(int size) {
-    setSize(size + "px");
-    return this;
-  }
+    public final IconBuilderFX apply(Labeled labeled) {
+        labeled.setText(Character.toString(getIcon().getUnicode()));
+        labeled.setStyle(buildStyle(true));
+        return this;
+    }
 
-  @Override
-  protected Class<IconBuilderFX> getIconFontClass() {
-    return IconBuilderFX.class;
-  }
+    public final Label buildLabel() {
+        Label label = new Label();
+        apply(label);
+        return label;
+    }
+
+    public final IconBuilderFX setGraphic(Labeled labeled) {
+        Label graphic = buildLabel();
+        labeled.setGraphic(graphic);
+        return this;
+    }
+
+    private int convert(double value) {
+        return (int) (value * 255);
+    }
+
+    protected String toRGBA(Color color) {
+        return "rgba(" + convert(color.getRed()) + "," + convert(color.getGreen())
+                + "," + convert(color.getBlue()) + "," + (int) color.getOpacity() + ")";
+    }
+
+    public final IconBuilderFX setSize(int size) {
+        setSize(size + "px");
+        return this;
+    }
+
+    @Override
+    protected Class<IconBuilderFX> getIconFontClass() {
+        return IconBuilderFX.class;
+    }
 }

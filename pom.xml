@@ -8,13 +8,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <groupId>jiconfont</groupId>
+    <groupId>com.github.jiconfont</groupId>
     <artifactId>jiconfont-javafx</artifactId>
     <version>0.9.0</version>
     <packaging>jar</packaging>
 
     <name>jIconFont - JavaFX</name>
-    <description>jIconFont-JavaFX is a API to provide icons generated from any IconFont. These icons can be used in JavaFX.</description>
+    <description>jIconFont-JavaFX is a API to provide icons generated from any IconFont. These icons can be used in
+        JavaFX.
+    </description>
     <url>https://github.com/jIconFont/jiconfont-javafx</url>
 
     <licenses>
@@ -55,7 +57,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>jiconfont</groupId>
+            <groupId>com.github.jiconfont</groupId>
             <artifactId>jiconfont</artifactId>
             <version>0.9.0</version>
         </dependency>
