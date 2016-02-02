@@ -172,7 +172,7 @@ public class CatalogPane extends BorderPane {
                     label.setTextFill(getIconColorPicker().getValue());
                     label.setStyle("-fx-font-size: 9px;");
                     label.setContentDisplay(ContentDisplay.TOP);
-                    iconBuilderFX.setGraphic(label);
+                    iconBuilderFX.setGraphicOn(label);
                 } else {
                     label = iconBuilderFX.buildLabel();
                 }

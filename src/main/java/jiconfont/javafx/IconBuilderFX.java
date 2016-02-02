@@ -93,12 +93,6 @@ public class IconBuilderFX extends IconBuilder<IconBuilderFX, Color, String> {
         return label;
     }
 
-    public final IconBuilderFX setGraphic(Labeled labeled) {
-        Label graphic = buildLabel();
-        labeled.setGraphic(graphic);
-        return this;
-    }
-
     private int convert(double value) {
         return (int) (value * 255);
     }
