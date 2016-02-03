@@ -1,7 +1,13 @@
 package jiconfont.javafx;
 
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import jiconfont.IconBuilder;
@@ -89,8 +95,19 @@ public class IconBuilderFX extends IconBuilder<IconBuilderFX, Color, String> {
 
     public final Label buildLabel() {
         Label label = new Label();
+        label.setMinWidth(Control.USE_PREF_SIZE);
+        label.setMinHeight(Control.USE_PREF_SIZE);
         apply(label);
         return label;
+    }
+
+    public final Image buildImage() {
+        Label label = buildLabel();
+        new Scene(label);
+        label.setBackground(null);
+        SnapshotParameters parameters = new SnapshotParameters();
+        parameters.setFill(Color.TRANSPARENT);
+        return label.snapshot(parameters, null);
     }
 
     private int convert(double value) {
