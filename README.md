@@ -32,6 +32,8 @@ label.setGraphic(iconNode);
 ```
 ![Example 2](http://jiconfont.github.io/images/javafx-example2.png)
 
+---
+
 #### Example 3
 
 ```java
@@ -47,6 +49,8 @@ button.setGraphic(iconNode);
 ```
 ![Example 3](http://jiconfont.github.io/images/javafx-example3.png)
 
+---
+
 #### Example 4
 
 ```java
@@ -61,6 +65,8 @@ Button button = new Button("Save");
 button.setGraphic(iconNode);
 ```
 ![Example 4](http://jiconfont.github.io/images/javafx-example4.png)
+
+---
 
 #### Example 5 (Stacked Icons)
 
@@ -83,6 +89,8 @@ stackedIconNode.add(Pos.BOTTOM_LEFT, iconNode2);
 ```
 ![Example 5](http://jiconfont.github.io/images/javafx-example5.png)
 
+---
+
 #### Example 6 (CSS)
 
 ```css
@@ -101,6 +109,8 @@ IconNode iconNode = new IconNode();
 iconNode.getStyleClass().add("myClass");
 ```
 ![Example 6](http://jiconfont.github.io/images/javafx-example6.png)
+
+---
 
 #### Example 7 (Custom font)
 
@@ -121,6 +131,8 @@ IconFontFX.register(new IconFont() {
 IconNode iconNode = new IconNode();
 iconNode.setIconCode(new DefaultIconCode("MyCustomFont", '\u1234'));
 ```
+
+---
 
 #### Example 8 (Custom font + CSS)
 
