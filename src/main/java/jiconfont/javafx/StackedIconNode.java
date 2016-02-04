@@ -1,6 +1,8 @@
 package jiconfont.javafx;
 
-import jiconfont.StackedIconBuilder;
+import javafx.geometry.Pos;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 
 /**
  * Copyright (c) 2016 jIconFont <BR>
@@ -23,5 +25,23 @@ import jiconfont.StackedIconBuilder;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class StackedIconBuilderFX extends StackedIconBuilder<IconBuilderFX> {
+public class StackedIconNode extends StackPane {
+
+    public StackedIconNode(IconNode... iconNodes) {
+        getChildren().addAll(iconNodes);
+        setMaxWidth(Region.USE_PREF_SIZE);
+        setMaxHeight(Region.USE_PREF_SIZE);
+    }
+
+    public void add(Pos alignment, IconNode iconNode) {
+        StackPane.setAlignment(iconNode, alignment);
+        getChildren().add(iconNode);
+    }
+
+    public void addAll(Pos alignment, IconNode... iconNodes) {
+        for (IconNode iconNode : iconNodes) {
+            StackPane.setAlignment(iconNode, alignment);
+        }
+        getChildren().addAll(iconNodes);
+    }
 }
