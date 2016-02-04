@@ -112,7 +112,7 @@ IconFontFX.register(new IconFont() {
 
     @Override
     public InputStream getFontInputStream() {
-        return Example7.class.getResourceAsStream("/myCustomFont.ttf");
+        return MyClass.class.getResourceAsStream("/myCustomFont.ttf");
     }
 });
 
@@ -140,7 +140,7 @@ IconFontFX.register(new IconFont() {
 
     @Override
     public InputStream getFontInputStream() {
-        return Example7.class.getResourceAsStream("/myCustomFont.ttf");
+        return MyClass.class.getResourceAsStream("/myCustomFont.ttf");
     }
 });
 
