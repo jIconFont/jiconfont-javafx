@@ -184,6 +184,4 @@ jIconFont is distributed under the terms of the [MIT license](http://opensource.
 
 ---
 
--> This is center aligned <-
-
-
+Visit [http://jiconfont.github.io/](http://jiconfont.github.io/)
