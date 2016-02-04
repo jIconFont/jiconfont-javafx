@@ -16,6 +16,8 @@ iconNode.setFill(Color.DARKGREEN);
 ```
 ![Example 1](http://jiconfont.github.io/images/javafx-example1.png)
 
+---
+
 #### Example 2
 
 ```java
