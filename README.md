@@ -161,6 +161,23 @@ IconFontFX.register(new IconFont() {
 IconNode iconNode = new IconNode();
 iconNode.getStyleClass().add("myCustomClass");
 ```
+---
+
+#### Example 9 (Image)
+
+```java
+// Register the IconFont
+IconFontFX.register(FontAwesome.getIconFont());
+
+Stop[] stops = new Stop[]{new Stop(0, Color.YELLOW), new Stop(1, Color.RED)};
+LinearGradient fill = new LinearGradient(0, 0, 0, 1, true, CycleMethod.NO_CYCLE, stops);
+Color stroke = Color.BLACK;
+Image image = IconFontFX.buildImage(FontAwesome.SMILE_O, 80, fill, stroke);
+
+Label label = new Label();
+label.setGraphic(new ImageView(image));
+```
+![Example 9](http://jiconfont.github.io/images/javafx-example9.png)
 
 ## LICENSE
 jIconFont is distributed under the terms of the [MIT license](http://opensource.org/licenses/mit-license.html). See LICENSE file for details.
